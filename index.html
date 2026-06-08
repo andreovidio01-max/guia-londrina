@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Guia de Londrina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #f4f5f7;
+    --surface: #ffffff;
+    --ink: #1c2530;
+    --muted: #6b7785;
+    --line: #e6e9ee;
+    --accent: #0f4c3a;
+    --accent-soft: #e7f0ec;
+    --shadow: 0 1px 2px rgba(16,24,32,.04), 0 8px 24px -12px rgba(16,24,32,.18);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 72px;
+  }
+
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    padding: 48px 24px 28px;
+    text-align: center;
+  }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: .28em;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-size: clamp(30px, 5vw, 46px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  .lead {
+    color: var(--muted);
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: 12px;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Navegação por categorias */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(244,245,247,.88);
+    backdrop-filter: saturate(180%) blur(10px);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 0;
+  }
+  .nav-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+  .tab {
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--muted);
+    padding: 9px 16px;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .18s ease;
+    white-space: nowrap;
+  }
+  .tab:hover { color: var(--ink); border-color: #c9d0d8; }
+  .tab.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+    font-weight: 600;
+  }
+
+  main { max-width: 1120px; margin: 0 auto; padding: 8px 24px 0; }
+
+  .section { padding-top: 40px; }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  .section-head h2 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .section-head .num {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 3px 10px;
+    border-radius: 999px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(248px, 1fr));
+    gap: 14px;
+  }
+  .card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px 18px;
+    text-decoration: none;
+    color: var(--ink);
+    box-shadow: var(--shadow);
+    transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+    box-shadow: 0 2px 4px rgba(16,24,32,.05), 0 16px 32px -16px rgba(15,76,58,.45);
+  }
+  .card .name { font-weight: 600; font-size: 15px; letter-spacing: -0.01em; }
+  .card .open {
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--muted);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+  .card:hover .open { color: var(--accent); }
+  .card .arrow {
+    flex: none;
+    color: #b4bcc6;
+    transition: color .15s ease, transform .15s ease;
+  }
+  .card:hover .arrow { color: var(--accent); transform: translate(2px, -2px); }
+
+  footer {
+    max-width: 1120px;
+    margin: 64px auto 0;
+    padding: 28px 24px 0;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    color: var(--muted);
+    font-size: 12.5px;
+    font-weight: 400;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Norte do Paraná</div>
+    <h1>Guia de Londrina</h1>
+    <p class="lead">Uma seleção de lugares para conhecer na cidade e região. Toque em qualquer cartão para abrir a localização no Google Maps.</p>
+  </header>
+
+  <nav class="nav"><div class="nav-inner" id="nav"></div></nav>
+
+  <main id="main"></main>
+
+  <footer id="footer"></footer>
+
+<script>
+const DATA = [
+  { cat: "Natureza e parques", places: [
+    { n: "Lago Igapó", u: "https://maps.google.com/?cid=15143357024713545451" },
+    { n: "Jardim Botânico", u: "https://maps.google.com/?cid=4980896633573091875" },
+    { n: "Parque Arthur Thomas", u: "https://maps.google.com/?cid=10955187751724165906" },
+    { n: "Zerão (Luigi Borghesi)", u: "https://maps.google.com/?cid=12112304146145369733" },
+    { n: "Cascata de Pedra", u: "https://maps.google.com/?cid=15646107252465569645" },
+    { n: "Cabrinha Lake Park", u: "https://maps.google.com/?cid=4595679559551076613" },
+    { n: "Lago Norte", u: "https://maps.google.com/?cid=10476337830538954473" },
+    { n: "Mirante do Pôr do Sol", u: "https://maps.google.com/?cid=12839282168908236041" },
+    { n: "Pedra do Davi", u: "https://maps.google.com/?cid=4191188562721685705" },
+    { n: "Bosque Municipal Marechal Rondon", u: "https://www.google.com/maps/search/?api=1&query=Bosque+Municipal+Marechal+Candido+Rondon+Londrina" },
+    { n: "Parque Municipal Ouro Branco", u: "https://www.google.com/maps/search/?api=1&query=Parque+Municipal+Ouro+Branco+Londrina" },
+  ]},
+  { cat: "Cachoeiras", places: [
+    { n: "Cachoeira do Tauá", u: "https://maps.google.com/?cid=13368994744426263898" },
+    { n: "Cachoeira dos Barros", u: "https://maps.google.com/?cid=8433580262313023795" },
+    { n: "Salto do Apucaraninha", u: "https://www.google.com/maps/search/?api=1&query=Salto+do+Apucaraninha+Tamarana" },
+  ]},
+  { cat: "Cultura, museus e teatros", places: [
+    { n: "Catedral Metropolitana", u: "https://maps.google.com/?cid=18002163716492145685" },
+    { n: "Museu Histórico de Londrina (Pe. Carlos Weiss)", u: "https://www.google.com/maps/search/?api=1&query=Museu+Historico+de+Londrina+Padre+Carlos+Weiss" },
+    { n: "Concha Acústica", u: "https://www.google.com/maps/search/?api=1&query=Concha+Acustica+Londrina" },
+    { n: "Memorial Japonês (Praça Nishinomiya)", u: "https://www.google.com/maps/search/?api=1&query=Praca+Nishinomiya+Memorial+Japones+Londrina" },
+    { n: "Calçadão de Londrina", u: "https://www.google.com/maps/search/?api=1&query=Calcadao+de+Londrina" },
+    { n: "Planetário de Londrina", u: "https://www.google.com/maps/search/?api=1&query=Planetario+de+Londrina+UEL" },
+    { n: "Museu de Arte de Londrina", u: "https://maps.google.com/?cid=17255064648571518172" },
+    { n: "SESC Cadeião / Museu do Café", u: "https://maps.google.com/?cid=440059884305698572" },
+    { n: "Museu de Anatomia (UEL)", u: "https://maps.google.com/?cid=8456431486991028273" },
+    { n: "Museu de Ciência e Tecnologia (UEL)", u: "https://maps.google.com/?cid=9823046132915789131" },
+    { n: "Teatro Maria da Glória", u: "https://maps.google.com/?cid=570403992124169821" },
+    { n: "Cine Teatro Ouro Verde", u: "https://maps.google.com/?cid=15827241828668661141" },
+    { n: "Teatro Marista", u: "https://maps.google.com/?cid=13665278307022116997" },
+  ]},
+  { cat: "Bares e cervejarias", places: [
+    { n: "Drop the Hop", u: "https://maps.google.com/?cid=1713305656257037673" },
+    { n: "Nação Bretta", u: "https://maps.google.com/?cid=7977530080182534770" },
+    { n: "Hopper's Centro", u: "https://maps.google.com/?cid=5010567868284208602" },
+    { n: "Morcelli Cerveja Artesanal", u: "https://maps.google.com/?cid=6525875522640084652" },
+    { n: "Raccoon Craft Beer", u: "https://maps.google.com/?cid=11710392343052652868" },
+  ]},
+  { cat: "Restaurantes · Alta gastronomia", places: [
+    { n: "Boussolé Rooftop", u: "https://www.google.com/maps/search/?api=1&query=Boussole+Rooftop+Londrina" },
+    { n: "Terrace (Palhano Premium)", u: "https://www.google.com/maps/search/?api=1&query=Terrace+Restaurante+Palhano+Premium+Londrina" },
+    { n: "Baro Restaurante", u: "https://www.google.com/maps/search/?api=1&query=Baro+Restaurante+Londrina" },
+    { n: "Olivetto Restaurante e Enoteca", u: "https://www.google.com/maps/search/?api=1&query=Olivetto+Restaurante+Enoteca+Londrina" },
+  ]},
+  { cat: "Restaurantes · Italiano", places: [
+    { n: "Barolo Ristorante", u: "https://www.google.com/maps/search/?api=1&query=Barolo+Ristorante+Londrina" },
+    { n: "La Gondola", u: "https://www.google.com/maps/search/?api=1&query=La+Gondola+Restaurante+Londrina" },
+    { n: "Serafinni", u: "https://www.google.com/maps/search/?api=1&query=Serafinni+Restaurante+Londrina" },
+    { n: "Villa Fontana", u: "https://www.google.com/maps/search/?api=1&query=Villa+Fontana+Restaurante+Londrina" },
+  ]},
+  { cat: "Pizzarias italianas top", places: [
+    { n: "Rosso Pomodoro", u: "https://www.google.com/maps/search/?api=1&query=Rosso+Pomodoro+Pizzaria+Londrina" },
+    { n: "Belunardo Pizzaria", u: "https://www.google.com/maps/search/?api=1&query=Belunardo+Pizzaria+Londrina" },
+    { n: "Pizzaria Maranello", u: "https://www.google.com/maps/search/?api=1&query=Pizzaria+Maranello+Londrina" },
+    { n: "Pizzaria Donatello", u: "https://www.google.com/maps/search/?api=1&query=Pizzaria+Donatello+Londrina" },
+    { n: "Pizzaria Massa Fera", u: "https://www.google.com/maps/search/?api=1&query=Pizzaria+Massa+Fera+Londrina" },
+  ]},
+  { cat: "Restaurantes · Carnes e churrascaria", places: [
+    { n: "Cabaña Ganadera", u: "https://www.google.com/maps/search/?api=1&query=Cabana+Ganadera+Londrina" },
+    { n: "Galpão Nelore Churrascaria", u: "https://www.google.com/maps/search/?api=1&query=Galpao+Nelore+Churrascaria+Londrina" },
+  ]},
+  { cat: "Restaurantes · Japonês", places: [
+    { n: "Sugoi Sushi", u: "https://www.google.com/maps/search/?api=1&query=Sugoi+Sushi+Londrina" },
+    { n: "Kabuto", u: "https://www.google.com/maps/search/?api=1&query=Kabuto+Restaurante+Japones+Londrina" },
+    { n: "Kozan Sushi", u: "https://www.google.com/maps/search/?api=1&query=Kozan+Sushi+Londrina" },
+    { n: "Karuby Yakiniku", u: "https://www.google.com/maps/search/?api=1&query=Karuby+Yakiniku+Londrina" },
+  ]},
+  { cat: "Restaurantes · Árabe e libanês", places: [
+    { n: "Kiberama", u: "https://www.google.com/maps/search/?api=1&query=Kiberama+Londrina" },
+    { n: "Zaki Sabor Árabe", u: "https://www.google.com/maps/search/?api=1&query=Zaki+Sabor+Arabe+Londrina" },
+    { n: "A Cantina (libanesa)", u: "https://www.google.com/maps/search/?api=1&query=A+Cantina+Libanesa+Rua+Pernambuco+Londrina" },
+    { n: "Snoobar Culinária Libanesa", u: "https://www.google.com/maps/search/?api=1&query=Snoobar+Culinaria+Libanesa+Londrina" },
+  ]},
+  { cat: "Restaurantes · Asiático", places: [
+    { n: "Bangkok (tailandês)", u: "https://www.google.com/maps/search/?api=1&query=Bangkok+Restaurante+Tailandes+Londrina" },
+  ]},
+  { cat: "Restaurantes · Alemão", places: [
+    { n: "Strassberg — Delícias Alemãs", u: "https://www.google.com/maps/search/?api=1&query=Strassberg+Delicias+Alemas+Londrina" },
+    { n: "Brot Restaurante Alemão", u: "https://www.google.com/maps/search/?api=1&query=Brot+Restaurante+Alemao+Londrina" },
+    { n: "Cantinho do Eisbein", u: "https://www.google.com/maps/search/?api=1&query=Cantinho+do+Eisbein+Londrina" },
+  ]},
+  { cat: "Esporte e clubes", places: [
+    { n: "Londrina Golf Club", u: "https://maps.google.com/?cid=2698939863337723468" },
+    { n: "GP Tênis", u: "https://maps.google.com/?cid=5043643049074049237" },
+    { n: "Nei Tennis Londrina", u: "https://maps.google.com/?cid=1507512801745582377" },
+    { n: "Londrina Country Clube", u: "https://maps.google.com/?cid=13064849963229485620" },
+    { n: "Londrina Yacht Club", u: "https://maps.google.com/?cid=3514291697144470223" },
+    { n: "AEL — Recreativa Londrinense", u: "https://maps.google.com/?cid=2585456642182895111" },
+  ]},
+  { cat: "Adrenalina", places: [
+    { n: "Fly Paraquedismo", u: "https://maps.google.com/?cid=16597808157904395706" },
+    { n: "Karting Londrina", u: "https://maps.google.com/?cid=12927861555817665474" },
+    { n: "L3 Kart Indoor", u: "https://maps.google.com/?cid=16908237744949635013" },
+    { n: "Commander Paintball", u: "https://maps.google.com/?cid=15998351347394310190" },
+    { n: "Paintball Arena", u: "https://maps.google.com/?cid=9687343287485700212" },
+    { n: "Airsoft QG Londrina", u: "https://maps.google.com/?cid=7138919590313351710" },
+    { n: "Clube de Tiro Primus", u: "https://maps.google.com/?cid=1209698959043582641" },
+    { n: "Perau Vermelho (escalada)", u: "https://maps.google.com/?cid=17156457719136980137" },
+  ]},
+  { cat: "Beach tennis e quadras", places: [
+    { n: "Recanto Beach Tennis", u: "https://maps.google.com/?cid=4661749185777769575" },
+    { n: "Arena Sport Beach", u: "https://maps.google.com/?cid=8102675023360144151" },
+    { n: "Arena Sacada BT", u: "https://maps.google.com/?cid=9516028607234140580" },
+  ]},
+  { cat: "Hípica", places: [
+    { n: "Centro Hípico Impacto", u: "https://maps.google.com/?cid=8938245882676060862" },
+  ]},
+  { cat: "Shoppings", places: [
+    { n: "Catuaí Shopping", u: "https://maps.google.com/?cid=12214034413883891710" },
+    { n: "Boulevard Shopping", u: "https://maps.google.com/?cid=17079414213528366718" },
+    { n: "Londrina Norte Shopping", u: "https://maps.google.com/?cid=9790003969816762479" },
+    { n: "Royal Plaza Shopping", u: "https://maps.google.com/?cid=14940331039577499817" },
+  ]},
+  { cat: "Cambé", places: [
+    { n: "Museu Histórico de Cambé", u: "https://maps.google.com/?cid=16728862742591553061" },
+    { n: "Parque Histórico Danziger Hof", u: "https://maps.google.com/?cid=17226244044371907495" },
+    { n: "Parque Zezão", u: "https://maps.google.com/?cid=3111478634928871312" },
+    { n: "Calçadão de Cambé", u: "https://maps.google.com/?cid=14902555650414965863" },
+  ]},
+];
+
+const nav = document.getElementById("nav");
+const main = document.getElementById("main");
+const total = DATA.reduce((s, c) => s + c.places.length, 0);
+
+const slug = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-");
+
+const arrowSVG = `<svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>`;
+
+// Tabs
+const allTab = document.createElement("button");
+allTab.className = "tab active";
+allTab.textContent = "Todos";
+allTab.onclick = () => setFilter("todos", allTab);
+nav.appendChild(allTab);
+
+DATA.forEach(c => {
+  const tab = document.createElement("button");
+  tab.className = "tab";
+  tab.textContent = c.cat;
+  tab.onclick = () => setFilter(slug(c.cat), tab);
+  nav.appendChild(tab);
+});
+
+// Sections
+DATA.forEach(c => {
+  const sec = document.createElement("section");
+  sec.className = "section";
+  sec.id = "sec-" + slug(c.cat);
+  const head = document.createElement("div");
+  head.className = "section-head";
+  head.innerHTML = `<h2>${c.cat}</h2><span class="num">${c.places.length}</span>`;
+  const grid = document.createElement("div");
+  grid.className = "grid";
+  c.places.forEach(p => {
+    const a = document.createElement("a");
+    a.className = "card";
+    a.href = p.u;
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.innerHTML = `<div><div class="name">${p.n}</div><div class="open">Abrir no Maps</div></div>${arrowSVG}`;
+    grid.appendChild(a);
+  });
+  sec.appendChild(head);
+  sec.appendChild(grid);
+  main.appendChild(sec);
+});
+
+function setFilter(key, btn) {
+  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+  btn.classList.add("active");
+  document.querySelectorAll(".section").forEach(sec => {
+    sec.style.display = (key === "todos" || sec.id === "sec-" + key) ? "" : "none";
+  });
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+document.getElementById("footer").textContent =
+  total + " lugares em Londrina e região · Toque para abrir no Google Maps";
+</script>
+</body>
+</html>
